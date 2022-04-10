@@ -1,0 +1,1 @@
+from .faster_rcnn_pretrained import FasterRCNN_Pretained
