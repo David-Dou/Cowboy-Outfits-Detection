@@ -1,0 +1,39 @@
+python main.py train ^
+       --data_dir=data/cowboyoutfits ^
+       --lr=0.005 ^
+       --momentum=0.9 ^
+       --weight_decay=0.0005 ^
+       --batch_size=2^
+       --num_epochs=10
+
+
+python main.py test ^
+       --data_dir=data/cowboyoutfits ^
+       --load-model-path=checkpoints/fasterrcnn_resnet50_fpn_pretrained.pth ^
+       --batch_size=2
+
+
+python main.py test ^
+       --test-data-path=data/kaggle_house_pred_test.csv ^
+       --load-model-path=checkpoints/LinReg_batchsize_16_lr_0.01_1217_19_38_32.pth ^
+       --batch_size=64
+
+
+python main.py test ^
+       --test-data-path=data/kaggle_house_pred_test.csv ^
+       --load-model-path=checkpoints/LinReg_batchsize_16_lr_0.0052_1217_20_30_52.pth ^
+       --batch_size=64
+
+
+python main.py test ^
+       --test-data-path=data/kaggle_house_pred_test.csv ^
+       --load-model-path=checkpoints/LinReg_batchsize_64_lr_0.01_1217_19_40_53.pth ^
+       --batch_size=64
+
+
+python main.py train_and_val ^
+       --train-data-path=data/kaggle_house_pred_train.csv ^
+       --lr=0.01 ^
+       --batch_size=16 ^
+       --model='LinReg' ^
+       --num_epochs=200
